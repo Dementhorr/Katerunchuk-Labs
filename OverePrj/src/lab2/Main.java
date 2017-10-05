@@ -1,5 +1,7 @@
 package lab2;
 
+import lab3.Lab3;
+
 public class Main {
 
 	public static int[][] logicMatrixBuild(int[] arr,int param){
@@ -107,6 +109,8 @@ public class Main {
 		int matrixNoP[][]=logicOperations(matrix1,matrix1,5);
 		int matrixRevertP[][]=logicOperations(matrix1,matrix1,6);
 		int matrixPcomositionQ[][]=logicOperations(matrix1,matrix2,7);
+		
+		
 		printMatrix(matrix1,"P");
 		printMatrix(matrix2,"Q");
 		printMatrix(matrixAnd,"And");
@@ -117,6 +121,14 @@ public class Main {
 		printMatrix(matrixNoP,"not P");
 		printMatrix(matrixRevertP,"Revert P");
 		printMatrix(matrixPcomositionQ,"P composition Q");
+		
+/////////////////////////LAB 3
+		int[][] matrixTransitivP=Lab3.transitivLocking(matrix1);
+		int[][] matrixRevertTransitivP=logicOperations(matrixTransitivP, matrixTransitivP, 6);
+		int[][] matrixFactoring = logicOperations(matrixTransitivP, matrixRevertTransitivP, 1);
+		printMatrix(matrixTransitivP,"Transitiv");
+		printMatrix(matrixFactoring,"Factoring");
+		
 	}
 
 }
